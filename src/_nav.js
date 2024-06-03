@@ -1,6 +1,8 @@
 import React from 'react'
 import CIcon from '@coreui/icons-react'
 import {
+  cilArrowCircleLeft,
+  cilArrowCircleRight,
   cilBell,
   cilCalculator,
   cilChartPie,
@@ -28,19 +30,19 @@ const _nav = [
   },
   {
     component: CNavTitle,
-    name: 'Theme',
+    name: 'Menu',
   },
   {
     component: CNavItem,
-    name: 'Colors',
+    name: 'Pemasukan',
     to: '/theme/colors',
-    icon: <CIcon icon={cilDrop} customClassName="nav-icon" />,
+    icon: <CIcon icon={cilArrowCircleRight} customClassName="nav-icon" />,
   },
   {
     component: CNavItem,
-    name: 'Typography',
+    name: 'Pengeluaran',
     to: '/theme/typography',
-    icon: <CIcon icon={cilPencil} customClassName="nav-icon" />,
+    icon: <CIcon icon={cilArrowCircleLeft} customClassName="nav-icon" />,
   },
   {
     component: CNavTitle,

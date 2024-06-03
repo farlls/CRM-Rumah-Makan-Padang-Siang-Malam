@@ -39,6 +39,7 @@ const Login = ({ setIsLoggedIn }) => {
       });
 
       if (response.data.message === 'Login successful') {
+        localStorage.setItem('token', response.data.token);
         setIsLoggedIn(true); // Update state login
         navigate('/dashboard'); // Mengarahkan ke halaman utama
       } else {

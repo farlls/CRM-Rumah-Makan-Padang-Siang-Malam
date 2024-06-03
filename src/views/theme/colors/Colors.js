@@ -11,6 +11,7 @@ const Colors = () => {
           <th scope="col">Kode</th>
           <th scope="col">Tanggal</th>
           <th scope="col">Jumlahs</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
@@ -19,12 +20,14 @@ const Colors = () => {
           <td>Mark</td>
           <td>Otto</td>
           <td>@mdo</td>
+          <td>@mdo</td>
         </tr>
         <tr>
           <th scope="row">2</th>
           <td>Jacob</td>
           <td>Thornton</td>
           <td>@fat</td>
+          <td>@mdo</td>
         </tr>
       </tbody>
 

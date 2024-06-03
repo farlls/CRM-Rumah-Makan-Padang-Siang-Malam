@@ -14,7 +14,7 @@ import CIcon from '@coreui/icons-react'
 
 import { AppSidebarNav } from './AppSidebarNav'
 
-import logo from 'src/assets/brand/Logo.svg'
+import logo from 'src/assets/brand/Logo 2.svg'
 
 // sidebar nav config
 import navigation from '../_nav'
@@ -37,7 +37,7 @@ const AppSidebar = () => {
     >
       <CSidebarHeader className="border-bottom d-flex justify-content-center">
         <CSidebarBrand to="/" className="justify-content-center">
-          <CImage src={logo} width={120} />
+          <CImage fluid src={logo}/>
         </CSidebarBrand>
         <CCloseButton
           className="d-lg-none"

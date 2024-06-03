@@ -1,10 +1,17 @@
 import React from 'react'
-import { CCard, CCardHeader, CCardBody, CContainer, CTable, CTableHead, CTableBody, CTableRow, CTableHeaderCell, CTableDataCell } from '@coreui/react'
+import { CCard, CCardHeader, CCardBody, CContainer, CTable, CTableHead, CTableBody, CTableRow, CTableHeaderCell, CTableDataCell, CRow, CCol } from '@coreui/react'
 import { DocsLink } from 'src/components'
 
 const TablePengeluaran = () => {
   return (
-    <CContainer fluid>
+    <CContainer fluid >
+    <CRow xs={{ cols:4 }}>
+    <CCol>
+      <h1>Pengeluaran</h1>
+    </CCol>
+    <CCol></CCol>
+    <CCol></CCol>
+    <CCol>
     <CTable>
         <CTableHead>
           <CTableRow>
@@ -34,6 +41,9 @@ const TablePengeluaran = () => {
           </CTableRow>
         </CTableBody>
       </CTable>
+    </CCol>
+    </CRow>
+    
     </CContainer>
     
   )

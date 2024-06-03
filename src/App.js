@@ -1,6 +1,7 @@
 import React, { Suspense, useEffect, useState } from 'react';
 import { HashRouter, Route, Routes, Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import axios from 'axios';
 
 import { CSpinner, useColorModes } from '@coreui/react';
 import './scss/style.scss';
@@ -18,7 +19,7 @@ const Page500 = React.lazy(() => import('./views/pages/page500/Page500'));
 const App = () => {
   const { isColorModeSet, setColorMode } = useColorModes('coreui-free-react-admin-template-theme');
   const storedTheme = useSelector((state) => state.theme);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.href.split('?')[1]);
@@ -33,6 +34,29 @@ const App = () => {
 
     setColorMode(storedTheme);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const token = localStorage.getItem('token');
+        if (token) {
+          const response = await axios.get('http://localhost:5000/api/check-auth', {
+            headers: {
+              Authorization: token
+            }
+          });
+          if (response.data.authenticated) {
+            setIsLoggedIn(true);
+          } else {
+            setIsLoggedIn(false);
+          }
+        }
+      } catch (error) {
+        setIsLoggedIn(false);
+      }
+    };
+    checkAuth();
+  }, []);
 
   return (
     <HashRouter>
@@ -51,15 +75,13 @@ const App = () => {
           {/* <Route path="*" name="Home" element={<DefaultLayout />} />
           <Route path="/" element={<Navigate to="/login" />} /> 
         </Routes> */}
-        <Routes>
+         <Routes>
           <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/404" element={<Page404 />} />
           <Route path="/500" element={<Page500 />} />
           <Route path="*" element={isLoggedIn ? <DefaultLayout /> : <Navigate to="/login" />} />
-          <Route path="/" element={<Navigate to={isLoggedIn ? "/" : "/login"} />} />
         </Routes>
-        
       </Suspense>
     </HashRouter>
   );

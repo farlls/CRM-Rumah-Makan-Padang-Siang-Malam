@@ -1,18 +1,33 @@
 import React from 'react'
-import { CCard, CCardHeader, CCardBody, CContainer, CTable, CTableHead, CTableBody, CTableRow, CTableHeaderCell, CTableDataCell, CRow, CCol } from '@coreui/react'
+import {
+  CCard,
+  CCardHeader,
+  CCardBody,
+  CContainer,
+  CTable,
+  CTableHead,
+  CTableBody,
+  CTableRow,
+  CTableHeaderCell,
+  CTableDataCell,
+  CRow,
+  CHeader,
+  CCol,
+  CWidgetStatsA
+} from '@coreui/react'
 import { DocsLink } from 'src/components'
 
 const TablePengeluaran = () => {
   return (
-    <CContainer fluid >
-    <CRow xs={{ cols:4 }}>
-    <CCol>
-      <h1>Pengeluaran</h1>
-    </CCol>
-    <CCol></CCol>
-    <CCol></CCol>
-    <CCol>
-    <CTable>
+    <CContainer fluid>
+      <CRow>Pengeluaran</CRow>
+      <CContainer>
+        <CRow>
+          <CCol></CCol>
+          <CCol></CCol>
+        </CRow>
+      </CContainer>
+      <CTable>
         <CTableHead>
           <CTableRow>
             <CTableHeaderCell scope="col">#</CTableHeaderCell>
@@ -28,24 +43,9 @@ const TablePengeluaran = () => {
             <CTableDataCell>Otto</CTableDataCell>
             <CTableDataCell>@mdo</CTableDataCell>
           </CTableRow>
-          <CTableRow>
-            <CTableHeaderCell scope="row">2</CTableHeaderCell>
-            <CTableDataCell>Jacob</CTableDataCell>
-            <CTableDataCell>Thornton</CTableDataCell>
-            <CTableDataCell>@fat</CTableDataCell>
-          </CTableRow>
-          <CTableRow>
-            <CTableHeaderCell scope="row">3</CTableHeaderCell>
-            <CTableDataCell colSpan={2}>Larry the Bird</CTableDataCell>
-            <CTableDataCell>@twitter</CTableDataCell>
-          </CTableRow>
         </CTableBody>
       </CTable>
-    </CCol>
-    </CRow>
-    
     </CContainer>
-    
   )
 }
 
